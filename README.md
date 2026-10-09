@@ -10,6 +10,8 @@ The employee referral form does not transmit or store the candidate's details
 in this public demo. Its project selector shows interests, not confirmed vacancies.
 The home screen also previews day off, vacation, sick leave, complaint, and
 coordinator-contact requests. Demo requests stay in the visitor's own browser.
+The legal partner in this demo is fictional. A live legal request is rejected
+unless a verified partner account has been assigned on the server.
 
 Open [the demo](https://artemkukunin.github.io/alimat-group-app/) after GitHub
 Pages is enabled. The JavaScript delivered to a browser is necessarily visible
