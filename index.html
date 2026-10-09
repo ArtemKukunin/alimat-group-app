@@ -197,9 +197,10 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); ou
 .cat-housing { background: var(--violet-soft); color: var(--violet); }
 .cat-salary { background: var(--good-soft); color: var(--good); }
 .cat-complaint { background: var(--accent-soft); color: var(--fg); }
+.cat-coordinator_contact { background: var(--info-soft); color: var(--info); }
 .cat-newcomer_question { background: var(--surface-2); color: var(--ink); border: 1px solid var(--line); }
 .cat-fill-day_off { background: var(--info); } .cat-fill-sick { background: var(--bad); } .cat-fill-vacation { background: var(--teal); } .cat-fill-housing { background: var(--violet); }
-.cat-fill-salary { background: var(--good); } .cat-fill-complaint { background: var(--accent); } .cat-fill-newcomer_question { background: var(--ink); }
+.cat-fill-salary { background: var(--good); } .cat-fill-complaint { background: var(--accent); } .cat-fill-coordinator_contact { background: var(--info); } .cat-fill-newcomer_question { background: var(--ink); }
 .cats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
 .catbtn { display: flex; align-items: center; gap: 10px; padding: 11px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); text-align: left; font-weight: 600; min-height: 60px; color: var(--fg); }
 .catbtn:disabled { opacity: .45; cursor: not-allowed; }
@@ -326,6 +327,10 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); ou
 .placement small { text-transform: uppercase; font-size: 11.5px; letter-spacing: .08em; color: var(--muted); font-weight: 600; }
 .placement b { font: 600 18px var(--f-display); color: var(--ink); }
 .referral-entry { display: flex; gap: 13px; align-items: center; border-left: 4px solid var(--brand-blue); cursor: pointer; }
+.quick-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+.quick-action { display: flex; align-items: center; gap: 8px; min-width: 0; min-height: 60px; padding: 9px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); box-shadow: var(--shadow); text-align: left; }
+.quick-action b { flex: 1; min-width: 0; font-size: 13px; line-height: 1.25; overflow-wrap: anywhere; }
+.quick-arrow { color: var(--info); font-size: 16px; }
 .referral-entry .cat { background: var(--info-soft); color: var(--info); }
 .referral-entry .grow { gap: 2px; }
 .referral-entry .grow b { color: var(--ink); }
@@ -451,6 +456,7 @@ AL.I18N.uk = {
   scope_all: 'Уся компанія', scope_project: 'Увесь проект', scope_department: 'Відділ', scope_group: 'Група / зміна',
   status_new: 'Нова', status_in_progress: 'В роботі', status_need_info: 'Потрібне уточнення', status_closed: 'Закрита',
   cat_day_off: 'Відгул', cat_sick: 'Лікарняний', cat_vacation: 'Відпустка', cat_housing: 'Житло', cat_salary: 'Зарплата', cat_complaint: 'Скарга', cat_newcomer_question: 'Питання новоприбулого',
+  quick_actions: 'Швидкі звернення', cat_coordinator_contact: 'Зв’язатися з координатором', describe_ph_coordinator_contact: 'Напишіть, з якого питання вам потрібен контакт координатора та як з вами зв’язатися.',
   describe_ph_day_off: 'Напр.: Прошу відгул у п’ятницю, маю візит в уряді о 10:00.', describe_ph_sick: 'Напр.: Лікар дав L4 на 5 днів.', describe_ph_vacation: 'Напр.: Прошу відпустку, їду додому.',
   describe_ph_housing: 'Адреса, кімната, що сталося і з якого часу.', describe_ph_salary: 'Який місяць, яких годин або доплат бракує.', describe_ph_complaint: 'Що сталося, коли і де. Факти, без образ.', describe_ph_newcomer_question: 'Будь-яке питання — ми допоможемо.',
   target_leader: 'Лідер', target_manager: 'Керівник проекту', target_coordinator: 'Координатор', target_housing: 'Житло', target_other: 'Інше',
@@ -529,6 +535,7 @@ AL.I18N.pl = {
   scope_all: 'Cała firma', scope_project: 'Cały projekt', scope_department: 'Dział', scope_group: 'Grupa / zmiana',
   status_new: 'Nowe', status_in_progress: 'W toku', status_need_info: 'Potrzebne wyjaśnienie', status_closed: 'Zamknięte',
   cat_day_off: 'Dzień wolny', cat_sick: 'L4 (zwolnienie)', cat_vacation: 'Urlop', cat_housing: 'Mieszkanie', cat_salary: 'Wynagrodzenie', cat_complaint: 'Skarga', cat_newcomer_question: 'Pytanie nowej osoby',
+  quick_actions: 'Szybkie zgłoszenia', cat_coordinator_contact: 'Kontakt z koordynatorem', describe_ph_coordinator_contact: 'Napisz, w jakiej sprawie chcesz się skontaktować i jak możemy do Ciebie oddzwonić.',
   describe_ph_day_off: 'Np. Proszę o wolne w piątek, mam wizytę w urzędzie o 10:00.', describe_ph_sick: 'Np. Lekarz dał L4 na 5 dni.', describe_ph_vacation: 'Np. Proszę o urlop, jadę do domu.',
   describe_ph_housing: 'Adres, pokój, co się stało i od kiedy.', describe_ph_salary: 'Który miesiąc, jakich godzin lub dodatków brakuje.', describe_ph_complaint: 'Co się stało, kiedy i gdzie. Fakty, bez obrażania.', describe_ph_newcomer_question: 'Każde pytanie — pomożemy.',
   target_leader: 'Lider', target_manager: 'Kierownik projektu', target_coordinator: 'Koordynator', target_housing: 'Mieszkanie', target_other: 'Inne',
@@ -607,6 +614,7 @@ AL.I18N.en = {
   scope_all: 'Whole company', scope_project: 'Whole project', scope_department: 'Department', scope_group: 'Group / shift',
   status_new: 'New', status_in_progress: 'In progress', status_need_info: 'Needs details', status_closed: 'Closed',
   cat_day_off: 'Day off', cat_sick: 'Sick leave', cat_vacation: 'Vacation', cat_housing: 'Housing', cat_salary: 'Salary', cat_complaint: 'Complaint', cat_newcomer_question: 'Newcomer question',
+  quick_actions: 'Quick requests', cat_coordinator_contact: 'Contact a coordinator', describe_ph_coordinator_contact: 'Tell us what you need to discuss and how we can reach you.',
   describe_ph_day_off: 'E.g. I ask for a day off on Friday, I have an appointment at the office at 10:00.', describe_ph_sick: 'E.g. The doctor gave me L4 for 5 days.', describe_ph_vacation: 'E.g. I ask for vacation, I am going home.',
   describe_ph_housing: 'Address, room, what happened and since when.', describe_ph_salary: 'Which month, which hours or bonuses are missing.', describe_ph_complaint: 'What happened, when and where. Facts, no insults.', describe_ph_newcomer_question: 'Any question — we will help.',
   target_leader: 'Leader', target_manager: 'Project manager', target_coordinator: 'Coordinator', target_housing: 'Housing', target_other: 'Other',
@@ -685,6 +693,7 @@ AL.I18N.ru = {
   scope_all: 'Вся компания', scope_project: 'Весь проект', scope_department: 'Отдел', scope_group: 'Группа / смена',
   status_new: 'Новая', status_in_progress: 'В работе', status_need_info: 'Нужно уточнение', status_closed: 'Закрыта',
   cat_day_off: 'Отгул', cat_sick: 'Больничный', cat_vacation: 'Отпуск', cat_housing: 'Жильё', cat_salary: 'Зарплата', cat_complaint: 'Жалоба', cat_newcomer_question: 'Вопрос новоприбывшего',
+  quick_actions: 'Быстрые обращения', cat_coordinator_contact: 'Связаться с координатором', describe_ph_coordinator_contact: 'Напишите, по какому вопросу нужен координатор и как с вами связаться.',
   describe_ph_day_off: 'Напр.: Прошу отгул в пятницу, у меня визит в ужонд в 10:00.', describe_ph_sick: 'Напр.: Врач дал L4 на 5 дней.', describe_ph_vacation: 'Напр.: Прошу отпуск, еду домой.',
   describe_ph_housing: 'Адрес, комната, что случилось и с какого времени.', describe_ph_salary: 'Какой месяц, каких часов или доплат не хватает.', describe_ph_complaint: 'Что случилось, когда и где. Факты, без оскорблений.', describe_ph_newcomer_question: 'Любой вопрос — мы поможем.',
   target_leader: 'Лидер', target_manager: 'Руководитель проекта', target_coordinator: 'Координатор', target_housing: 'Жильё', target_other: 'Другое',
@@ -763,6 +772,7 @@ AL.I18N.es = {
   scope_all: 'Toda la empresa', scope_project: 'Todo el proyecto', scope_department: 'Departamento', scope_group: 'Grupo / turno',
   status_new: 'Nueva', status_in_progress: 'En curso', status_need_info: 'Falta información', status_closed: 'Cerrada',
   cat_day_off: 'Día libre', cat_sick: 'Baja médica', cat_vacation: 'Vacaciones', cat_housing: 'Vivienda', cat_salary: 'Salario', cat_complaint: 'Queja', cat_newcomer_question: 'Pregunta de recién llegado',
+  quick_actions: 'Solicitudes rápidas', cat_coordinator_contact: 'Contactar al coordinador', describe_ph_coordinator_contact: 'Cuéntanos qué necesitas hablar y cómo podemos contactarte.',
   describe_ph_day_off: 'Ej.: Pido el viernes libre, tengo cita en la oficina a las 10:00.', describe_ph_sick: 'Ej.: El médico me dio L4 por 5 días.', describe_ph_vacation: 'Ej.: Pido vacaciones, voy a casa.',
   describe_ph_housing: 'Dirección, habitación, qué pasó y desde cuándo.', describe_ph_salary: 'Qué mes y qué horas o pluses faltan.', describe_ph_complaint: 'Qué pasó, cuándo y dónde. Hechos, sin insultos.', describe_ph_newcomer_question: 'Cualquier pregunta: te ayudamos.',
   target_leader: 'Líder', target_manager: 'Jefe de proyecto', target_coordinator: 'Coordinador', target_housing: 'Vivienda', target_other: 'Otro',
@@ -841,6 +851,7 @@ AL.I18N.ro = {
   scope_all: 'Toată firma', scope_project: 'Tot proiectul', scope_department: 'Departament', scope_group: 'Grupă / tură',
   status_new: 'Nouă', status_in_progress: 'În lucru', status_need_info: 'Necesită detalii', status_closed: 'Închisă',
   cat_day_off: 'Zi liberă', cat_sick: 'Concediu medical', cat_vacation: 'Concediu', cat_housing: 'Cazare', cat_salary: 'Salariu', cat_complaint: 'Reclamație', cat_newcomer_question: 'Întrebare de nou-venit',
+  quick_actions: 'Cereri rapide', cat_coordinator_contact: 'Contactează coordonatorul', describe_ph_coordinator_contact: 'Spune-ne despre ce vrei să discuți și cum te putem contacta.',
   describe_ph_day_off: 'Ex.: Cer zi liberă vineri, am o programare la oficiu la 10:00.', describe_ph_sick: 'Ex.: Medicul mi-a dat L4 pentru 5 zile.', describe_ph_vacation: 'Ex.: Cer concediu, merg acasă.',
   describe_ph_housing: 'Adresa, camera, ce s-a întâmplat și de când.', describe_ph_salary: 'Ce lună și ce ore sau sporuri lipsesc.', describe_ph_complaint: 'Ce s-a întâmplat, când și unde. Fapte, fără jigniri.', describe_ph_newcomer_question: 'Orice întrebare — te ajutăm.',
   target_leader: 'Lider', target_manager: 'Șef de proiect', target_coordinator: 'Coordonator', target_housing: 'Cazare', target_other: 'Altceva',
@@ -920,6 +931,7 @@ AL.I18N.ne = {
   scope_all: 'पूरै कम्पनी', scope_project: 'पूरै परियोजना', scope_department: 'विभाग', scope_group: 'समूह / सिफ्ट',
   status_new: 'नयाँ', status_in_progress: 'काम हुँदैछ', status_need_info: 'थप जानकारी चाहिन्छ', status_closed: 'बन्द',
   cat_day_off: 'एक दिन बिदा', cat_sick: 'बिरामी बिदा', cat_vacation: 'छुट्टी', cat_housing: 'बसोबास', cat_salary: 'तलब', cat_complaint: 'उजुरी', cat_newcomer_question: 'नयाँ आएकाको प्रश्न',
+  quick_actions: 'छिटो अनुरोध', cat_coordinator_contact: 'संयोजकसँग सम्पर्क', describe_ph_coordinator_contact: 'कुन विषयमा कुरा गर्न चाहनुहुन्छ र हामीले कसरी सम्पर्क गर्ने लेख्नुहोस्।',
   describe_ph_day_off: 'जस्तै: शुक्रबार बिदा चाहियो, १०:०० बजे कार्यालयमा काम छ।', describe_ph_sick: 'जस्तै: डाक्टरले ५ दिनको L4 दिनुभयो।', describe_ph_vacation: 'जस्तै: छुट्टी चाहियो, घर जाँदैछु।',
   describe_ph_housing: 'ठेगाना, कोठा, के भयो र कहिलेदेखि।', describe_ph_salary: 'कुन महिना, कति घण्टा वा भत्ता छुट्यो।', describe_ph_complaint: 'के भयो, कहिले र कहाँ। तथ्य मात्र, अपमान नगर्नुहोस्।', describe_ph_newcomer_question: 'जुनसुकै प्रश्न — हामी मद्दत गर्छौं।',
   target_leader: 'लिडर', target_manager: 'परियोजना प्रबन्धक', target_coordinator: 'संयोजक', target_housing: 'बसोबास', target_other: 'अन्य',
@@ -935,7 +947,7 @@ AL.I18N.ne = {
 (function () {
   const GLOBAL = ['admin_global', 'superadmin'];
   const ROLES = ['worker', 'leader', 'manager', 'coordinator', 'hr', 'admin_project', 'admin_global', 'superadmin'];
-  const CATEGORIES = ['day_off', 'sick', 'vacation', 'housing', 'salary', 'complaint', 'newcomer_question'];
+  const CATEGORIES = ['day_off', 'sick', 'vacation', 'housing', 'salary', 'complaint', 'coordinator_contact', 'newcomer_question'];
   const LEAVE = ['day_off', 'sick', 'vacation'];
   const NO_LIMIT = ['sick', 'newcomer_question'];
   const LIMIT_MS = 2 * 60 * 60 * 1000;
@@ -995,6 +1007,7 @@ AL.I18N.ne = {
         (['coordinator', 'hr'].includes(me.role) && inp);
     }
     if (r.category === 'housing') return me.role === 'coordinator' && inp;
+    if (r.category === 'coordinator_contact') return me.role === 'coordinator' && inp;
     if (r.category === 'salary' || r.category === 'newcomer_question') return ['coordinator', 'hr'].includes(me.role) && inp;
     if (r.category === 'complaint') {
       if (['manager', 'coordinator'].includes(r.complaint_target)) return false;
@@ -1007,6 +1020,7 @@ AL.I18N.ne = {
   function audienceRoles(category, target) {
     if (LEAVE.includes(category)) return ['leader', 'manager', 'coordinator', 'hr'];
     if (category === 'housing') return ['coordinator'];
+    if (category === 'coordinator_contact') return ['coordinator'];
     if (category === 'salary' || category === 'newcomer_question') return ['coordinator', 'hr'];
     if (category === 'complaint') return ['manager', 'coordinator'].includes(target) ? [] : ['coordinator'];
     return [];
@@ -1570,6 +1584,7 @@ AL.I18N.ne = {
     housing: '<path d="M3 11l9-7 9 7"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-5h4v5"/>',
     salary: '<rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/><path d="M6 9.5v5M18 9.5v5"/>',
     complaint: '<path d="M12 3l9.5 17h-19z"/><path d="M12 10v4.5M12 17.2v.3"/>',
+    coordinator_contact: '<path d="M5 4h5l1 4-2 2c1.4 2.5 2.5 3.6 5 5l2-2 4 1v5c-9 2-17-6-15-15z"/>',
     newcomer_question: '<circle cx="12" cy="12" r="9"/><path d="M9.5 9.3a2.6 2.6 0 1 1 3.6 2.4c-.8.4-1.1 1-1.1 1.8v.5M12 17v.3"/>',
     poll: '<path d="M5 20V12M12 20V5M19 20v-9"/>',
     task: '<rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 12l3 3 5-6"/>',
@@ -1823,6 +1838,7 @@ AL.I18N.ne = {
     const hello = t('hello', { name: me.full_name.split(' ')[0] });
     v.innerHTML = `${header(hello, [me.position || t('role_' + me.role), place(me)].filter(Boolean).join(' · '))}
       ${blockBanner()}
+      ${AL.blockOf(me) !== 'readonly' ? `<h2 class="sec">${t('quick_actions')}</h2><div class="quick-actions">${['day_off','vacation','sick','complaint','coordinator_contact'].filter(c => c !== 'complaint' || AL.blockOf(me) !== 'complaints').map(c => `<button type="button" class="quick-action" data-quick="${c}"><span class="cat cat-${c}">${icon(c)}</span><b>${t('cat_' + c)}</b><span class="quick-arrow">→</span></button>`).join('')}</div>` : ''}
       ${AL.can.referral(me) ? `<button type="button" class="card referral-entry" id="go-referral"><span class="cat">${icon('referral')}</span><span class="grow"><b>${t('referral_title')}</b><small>${t('referral_entry')}</small></span>${icon('back', 'flip')}</button>` : ''}
       ${me.status === 'newcomer' && ob ? `<button class="card firstday-mini" id="go-fd"><small>${t('first_day')}</small><b>${esc(fDateLong(ob.first_day))}, ${esc(ob.start_time || '')}</b><span>${esc(ob.place || '')}</span><em>${t('open_details')} →</em></button>` : ''}
       ${myTasks.length ? `<h2 class="sec">${t('my_tasks')} <span class="count">${myTasks.length}</span></h2><div class="stack">${myTasks.map(taskCard).join('')}</div>` : ''}
@@ -1831,6 +1847,7 @@ AL.I18N.ne = {
       <div class="stack">${anns.length ? anns.map(a => annCard(a, stats[a.id])).join('') : `<div class="empty">${t('no_announcements')}</div>`}</div>
       ${donePolls.length ? `<h2 class="sec">${t('polls_done')}</h2><div class="stack">${donePolls.map(pollCard).join('')}</div>` : ''}`;
     const fd = $('#go-fd', v); if (fd) fd.onclick = () => { ST.tab = 'firstday'; render(); };
+    $$('[data-quick]', v).forEach(b => b.onclick = () => openNewRequest(b.dataset.quick));
     const referral = $('#go-referral', v); if (referral) referral.onclick = () => { ST.tab = 'referral'; ST.referralSuccess = false; render(); };
     $$('[data-ann]', v).forEach(c => c.onclick = async () => {
       c.classList.toggle('open');
@@ -1986,8 +2003,8 @@ AL.I18N.ne = {
     const next = await guard(() => ST.api.nextAllowedAt());
     const limited = next && next > new Date();
     const cats = AL.CATEGORIES.filter(c => c !== 'newcomer_question' || me.status === 'newcomer');
-    const st = { category: preset || null, target: null, anonymous: false };
     const disabled = c => (limited && !AL.NO_LIMIT.includes(c)) || (c === 'complaint' && AL.blockOf(me) === 'complaints');
+    const st = { category: preset && cats.includes(preset) && !disabled(preset) ? preset : null, target: null, anonymous: false };
 
     function step1() {
       return `<h2>${t('new_request')}</h2>

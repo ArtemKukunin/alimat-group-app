@@ -8,6 +8,8 @@ credentials, or real employee data. It does not send messages between people.
 The administrator demo button is an unrestricted preview, not an admin login.
 The employee referral form does not transmit or store the candidate's details
 in this public demo. Its project selector shows interests, not confirmed vacancies.
+The home screen also previews day off, vacation, sick leave, complaint, and
+coordinator-contact requests. Demo requests stay in the visitor's own browser.
 
 Open [the demo](https://artemkukunin.github.io/alimat-group-app/) after GitHub
 Pages is enabled. The JavaScript delivered to a browser is necessarily visible
