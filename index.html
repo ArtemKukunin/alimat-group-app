@@ -1026,6 +1026,17 @@ AL.I18N.ne = {
 (function () {
   const AL = window.AL;
   const KEY = 'alimat-demo-v1';
+  const PROJECTS = [
+    { id: 'p-animex', name: 'Animex K3' },
+    { id: 'p-drosed', name: 'Drosed Siedlce' },
+    { id: 'p-animex-k2', name: 'Animex K2' },
+    { id: 'p-animex-suwaki', name: 'Animex Suwaki' },
+    { id: 'p-lipce-reymontowskie', name: 'Lipce Reymontowskie' },
+    { id: 'p-konskowola-meat', name: 'Konskowola Meat' },
+    { id: 'p-citronex', name: 'Citronex' },
+    { id: 'p-karol', name: 'Karol' },
+    { id: 'p-bida-boleslaw', name: 'Bida (Bolesław)' },
+  ];
   const uid = () => (crypto.randomUUID ? crypto.randomUUID() : 'id-' + Math.random().toString(36).slice(2) + Date.now().toString(36));
   const now = () => new Date().toISOString();
   const ago = (h) => new Date(Date.now() - h * 3600e3).toISOString();
@@ -1119,7 +1130,7 @@ AL.I18N.ne = {
     ];
     return {
       v: 1, current: null,
-      projects: [{ id: P1, name: 'Animex K3' }, { id: P2, name: 'Drosed Siedlce' }],
+      projects: PROJECTS.map(p => ({ ...p })),
       departments: [{ id: D1, project_id: P1, name: 'Ubój' }, { id: D2, project_id: P1, name: 'Rozbiór' }, { id: D3, project_id: P2, name: 'Pakowanie' }],
       groups: [{ id: G1, department_id: D1, name: 'Zmiana A' }, { id: G2, department_id: D1, name: 'Zmiana B' }, { id: G3, department_id: D2, name: 'Zmiana A' }, { id: G4, department_id: D3, name: 'Zmiana A' }],
       users, requests, messages, announcements, reads, polls, poll_votes, poll_voters, tasks, onboarding, invites, audit,
@@ -1129,7 +1140,16 @@ AL.I18N.ne = {
 
   let S;
   function load() {
-    try { const raw = localStorage.getItem(KEY); if (raw) { S = JSON.parse(raw); if (S.v === 1) return; } } catch (e) { /* немає сховища */ }
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (raw) {
+        S = JSON.parse(raw);
+        if (S.v === 1 && Array.isArray(S.projects)) {
+          PROJECTS.forEach(p => { if (!S.projects.some(x => x.id === p.id || x.name === p.name)) S.projects.push({ ...p }); });
+          return;
+        }
+      }
+    } catch (e) { /* немає сховища */ }
     S = seed();
   }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { /* ок */ } }
