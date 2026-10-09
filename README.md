@@ -14,6 +14,9 @@ The "Mente Bussines" legal administrator is a demo persona with access only to
 assigned legal requests, not a company-wide administrator or a real account.
 A live legal request is rejected
 unless a verified partner account has been assigned on the server.
+The Mente Bussines dashboard uses fictional case dates, statuses and payment
+entries. Edits are kept in memory only and reset on refresh. Deadline alerts
+appear only while the app is open; there is no push, email or SMS delivery.
 
 Open [the demo](https://artemkukunin.github.io/alimat-group-app/) after GitHub
 Pages is enabled. The JavaScript delivered to a browser is necessarily visible

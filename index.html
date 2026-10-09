@@ -340,6 +340,16 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); ou
 .legal-entry { display: flex; align-items: flex-start; gap: 12px; flex-wrap: wrap; border-left: 4px solid var(--violet); }
 .legal-entry .grow b { color: var(--ink); }
 .legal-actions { display: flex; flex-wrap: wrap; gap: 7px; width: 100%; }
+.legal-project { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.legal-project b { color: var(--ink); }
+.legal-project span { color: var(--muted); font-size: 13px; }
+.legal-person { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+.legal-person .grow { gap: 3px; }
+.legal-person .grow b { color: var(--ink); }
+.legal-person strong { color: var(--ink); white-space: nowrap; font-size: 13px; }
+.legal-total { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: var(--ink); }
+.legal-filters label { color: var(--muted); font-size: 12px; font-weight: 700; }
+.legal-kpis .kpi b { font-size: 22px; }
 .referral-entry .cat { background: var(--info-soft); color: var(--info); }
 .referral-entry .grow { gap: 2px; }
 .referral-entry .grow b { color: var(--ink); }
@@ -469,6 +479,9 @@ AL.I18N.uk = {
   quick_actions: 'Швидкі звернення', cat_coordinator_contact: 'Зв’язатися з координатором', describe_ph_coordinator_contact: 'Напишіть, з якого питання вам потрібен контакт координатора та як з вами зв’язатися.',
   legal_partner: 'Mente Bussines · юридичний партнер', legal_sub: 'Питання щодо вашої справи або інше юридичне питання.', cat_legal_case_status: 'Стан моєї справи', cat_legal_question: 'Інше питання', describe_ph_legal_case_status: 'Коротко опишіть вашу справу та що саме хочете дізнатися.', describe_ph_legal_question: 'Сформулюйте ваше питання для юридичного партнера.', legal_audience: 'Побачите лише ви та призначений представник юридичного партнера.', legal_privacy: 'Не вказуйте PESEL, номери документів чи копії. У робочій версії заявка буде відхилена, доки не призначено отримувача.', err_legal_route_unavailable: 'Юридичний партнер ще не підключений. Заявку не збережено.',
   demo_legal: 'Mente Bussines · демо', legal_partner_role: 'Адміністратор юридичних заявок (лише свої звернення)',
+  legal_dashboard: 'Юридичні справи', legal_dashboard_sub: 'Mente Bussines · огляд справ і термінів', legal_demo_safety: 'У демо лише вигадані дані. Зміни статусів і оплат не зберігаються після оновлення сторінки.', legal_open_cases: 'Відкриті справи', legal_urgent: 'Термінові терміни', legal_open_questions: 'Відкриті питання', legal_all_cases: 'Усього справ', legal_reminder_partner: 'Перевірте справи, де легальність закінчується протягом місяця або вже минула.', legal_by_project: 'За проєктами', legal_cases_count: 'справ: {n}', legal_due_count: 'термінових: {n}', legal_candidates: 'Список людей', legal_no_cases: 'Справ поки немає.',
+  legal_expiry: 'Легальність перебування до', legal_expiry_date: 'Дата завершення', legal_expiry_hr_hint: 'Цю дату задають кадри. За місяць з’явиться нагадування в додатку для людини та Mente Bussines.', legal_case_status: 'Статус справи', legal_comment: 'Коментар до справи', legal_payments: 'Внесені оплати', legal_no_payments: 'Оплат ще немає.', legal_total: 'Разом оплачено', legal_add_payment: 'Додати оплату (PLN)', legal_reminder: 'Легальність перебування скоро закінчується:', legal_expired: 'Термін легальності перебування минув:', legal_reminder_action: 'Зверніться до кадрів або юридичного партнера.', legal_expired_short: 'термін минув', legal_due_soon: 'скоро закінчується',
+  legal_status_preparing: 'Підготовка документів', legal_status_application_filed: 'Заяву подано', legal_status_fingerprints_pending: 'Очікує на відбитки пальців', legal_status_decision_pending: 'Очікує рішення', legal_status_approved: 'Схвалено', legal_status_closed: 'Закрито',
   describe_ph_day_off: 'Напр.: Прошу відгул у п’ятницю, маю візит в уряді о 10:00.', describe_ph_sick: 'Напр.: Лікар дав L4 на 5 днів.', describe_ph_vacation: 'Напр.: Прошу відпустку, їду додому.',
   describe_ph_housing: 'Адреса, кімната, що сталося і з якого часу.', describe_ph_salary: 'Який місяць, яких годин або доплат бракує.', describe_ph_complaint: 'Що сталося, коли і де. Факти, без образ.', describe_ph_newcomer_question: 'Будь-яке питання — ми допоможемо.',
   target_leader: 'Лідер', target_manager: 'Керівник проекту', target_coordinator: 'Координатор', target_housing: 'Житло', target_other: 'Інше',
@@ -550,6 +563,9 @@ AL.I18N.pl = {
   quick_actions: 'Szybkie zgłoszenia', cat_coordinator_contact: 'Kontakt z koordynatorem', describe_ph_coordinator_contact: 'Napisz, w jakiej sprawie chcesz się skontaktować i jak możemy do Ciebie oddzwonić.',
   legal_partner: 'Mente Bussines · partner prawny', legal_sub: 'Zapytaj o stan swojej sprawy lub zadaj inne pytanie prawne.', cat_legal_case_status: 'Stan mojej sprawy', cat_legal_question: 'Inne pytanie', describe_ph_legal_case_status: 'Krótko opisz sprawę i czego chcesz się dowiedzieć.', describe_ph_legal_question: 'Napisz pytanie do partnera prawnego.', legal_audience: 'Zobaczysz to tylko Ty i wyznaczony przedstawiciel partnera prawnego.', legal_privacy: 'Nie wpisuj PESEL, numerów ani kopii dokumentów. W wersji roboczej zgłoszenie zostanie odrzucone, dopóki nie wyznaczymy odbiorcy.', err_legal_route_unavailable: 'Partner prawny nie jest jeszcze podłączony. Zgłoszenie nie zostało zapisane.',
   demo_legal: 'Mente Bussines · demo', legal_partner_role: 'Administrator zgłoszeń prawnych (tylko przypisane)',
+  legal_dashboard: 'Sprawy prawne', legal_dashboard_sub: 'Mente Bussines · sprawy i terminy', legal_demo_safety: 'Demo zawiera tylko fikcyjne dane. Zmiany statusów i wpłat znikną po odświeżeniu.', legal_open_cases: 'Otwarte sprawy', legal_urgent: 'Pilne terminy', legal_open_questions: 'Otwarte pytania', legal_all_cases: 'Wszystkie sprawy', legal_reminder_partner: 'Sprawdź sprawy, w których legalność pobytu kończy się w ciągu miesiąca lub już minęła.', legal_by_project: 'Według projektów', legal_cases_count: 'spraw: {n}', legal_due_count: 'pilnych: {n}', legal_candidates: 'Lista osób', legal_no_cases: 'Brak spraw.',
+  legal_expiry: 'Legalność pobytu do', legal_expiry_date: 'Data końcowa', legal_expiry_hr_hint: 'Datę wpisują kadry. Miesiąc wcześniej osoba i Mente Bussines zobaczą przypomnienie w aplikacji.', legal_case_status: 'Status sprawy', legal_comment: 'Komentarz do sprawy', legal_payments: 'Wpłaty', legal_no_payments: 'Brak wpłat.', legal_total: 'Łącznie wpłacono', legal_add_payment: 'Dodaj wpłatę (PLN)', legal_reminder: 'Legalność pobytu wkrótce się kończy:', legal_expired: 'Termin legalności pobytu minął:', legal_reminder_action: 'Skontaktuj się z kadrami lub partnerem prawnym.', legal_expired_short: 'po terminie', legal_due_soon: 'wkrótce koniec',
+  legal_status_preparing: 'Przygotowanie dokumentów', legal_status_application_filed: 'Wniosek złożony', legal_status_fingerprints_pending: 'Oczekuje na odciski palców', legal_status_decision_pending: 'Oczekuje na decyzję', legal_status_approved: 'Zatwierdzono', legal_status_closed: 'Zamknięta',
   describe_ph_day_off: 'Np. Proszę o wolne w piątek, mam wizytę w urzędzie o 10:00.', describe_ph_sick: 'Np. Lekarz dał L4 na 5 dni.', describe_ph_vacation: 'Np. Proszę o urlop, jadę do domu.',
   describe_ph_housing: 'Adres, pokój, co się stało i od kiedy.', describe_ph_salary: 'Który miesiąc, jakich godzin lub dodatków brakuje.', describe_ph_complaint: 'Co się stało, kiedy i gdzie. Fakty, bez obrażania.', describe_ph_newcomer_question: 'Każde pytanie — pomożemy.',
   target_leader: 'Lider', target_manager: 'Kierownik projektu', target_coordinator: 'Koordynator', target_housing: 'Mieszkanie', target_other: 'Inne',
@@ -631,6 +647,9 @@ AL.I18N.en = {
   quick_actions: 'Quick requests', cat_coordinator_contact: 'Contact a coordinator', describe_ph_coordinator_contact: 'Tell us what you need to discuss and how we can reach you.',
   legal_partner: 'Mente Bussines · legal partner', legal_sub: 'Ask about your case status or send another legal question.', cat_legal_case_status: 'Status of my case', cat_legal_question: 'Other question', describe_ph_legal_case_status: 'Briefly describe your case and what you want to know.', describe_ph_legal_question: 'Write your question to the legal partner.', legal_audience: 'Only you and the designated legal partner representative can see this.', legal_privacy: 'Do not enter ID numbers, document numbers or copies. Live submissions are refused until a recipient is assigned.', err_legal_route_unavailable: 'The legal partner is not connected yet. Your request was not saved.',
   demo_legal: 'Mente Bussines · demo', legal_partner_role: 'Legal requests administrator (assigned cases only)',
+  legal_dashboard: 'Legal cases', legal_dashboard_sub: 'Mente Bussines · cases and deadlines', legal_demo_safety: 'Fictional demo data only. Status and payment changes reset on refresh.', legal_open_cases: 'Open cases', legal_urgent: 'Urgent deadlines', legal_open_questions: 'Open questions', legal_all_cases: 'Total cases', legal_reminder_partner: 'Check cases where lawful stay expires within a month or has already expired.', legal_by_project: 'By project', legal_cases_count: 'cases: {n}', legal_due_count: 'urgent: {n}', legal_candidates: 'People', legal_no_cases: 'No cases yet.',
+  legal_expiry: 'Lawful stay until', legal_expiry_date: 'Expiry date', legal_expiry_hr_hint: 'HR records this date. One month beforehand, the person and Mente Bussines see an in-app reminder.', legal_case_status: 'Case status', legal_comment: 'Case comment', legal_payments: 'Payments recorded', legal_no_payments: 'No payments yet.', legal_total: 'Total paid', legal_add_payment: 'Add payment (PLN)', legal_reminder: 'Your lawful stay is expiring soon:', legal_expired: 'Your lawful stay date has passed:', legal_reminder_action: 'Contact HR or the legal partner.', legal_expired_short: 'expired', legal_due_soon: 'due soon',
+  legal_status_preparing: 'Preparing documents', legal_status_application_filed: 'Application filed', legal_status_fingerprints_pending: 'Awaiting fingerprints', legal_status_decision_pending: 'Awaiting decision', legal_status_approved: 'Approved', legal_status_closed: 'Closed',
   describe_ph_day_off: 'E.g. I ask for a day off on Friday, I have an appointment at the office at 10:00.', describe_ph_sick: 'E.g. The doctor gave me L4 for 5 days.', describe_ph_vacation: 'E.g. I ask for vacation, I am going home.',
   describe_ph_housing: 'Address, room, what happened and since when.', describe_ph_salary: 'Which month, which hours or bonuses are missing.', describe_ph_complaint: 'What happened, when and where. Facts, no insults.', describe_ph_newcomer_question: 'Any question — we will help.',
   target_leader: 'Leader', target_manager: 'Project manager', target_coordinator: 'Coordinator', target_housing: 'Housing', target_other: 'Other',
@@ -712,6 +731,9 @@ AL.I18N.ru = {
   quick_actions: 'Быстрые обращения', cat_coordinator_contact: 'Связаться с координатором', describe_ph_coordinator_contact: 'Напишите, по какому вопросу нужен координатор и как с вами связаться.',
   legal_partner: 'Mente Bussines · юридический партнёр', legal_sub: 'Узнайте о состоянии дела или задайте другой юридический вопрос.', cat_legal_case_status: 'Состояние моего дела', cat_legal_question: 'Другой вопрос', describe_ph_legal_case_status: 'Кратко опишите дело и что хотите узнать.', describe_ph_legal_question: 'Напишите вопрос юридическому партнёру.', legal_audience: 'Это увидите только вы и назначенный представитель юридического партнёра.', legal_privacy: 'Не указывайте PESEL, номера или копии документов. В рабочей версии заявка не сохранится, пока не назначен получатель.', err_legal_route_unavailable: 'Юридический партнёр ещё не подключён. Заявка не сохранена.',
   demo_legal: 'Mente Bussines · демо', legal_partner_role: 'Администратор юридических заявок (только назначенные)',
+  legal_dashboard: 'Юридические дела', legal_dashboard_sub: 'Mente Bussines · дела и сроки', legal_demo_safety: 'В демо только вымышленные данные. Изменения статусов и оплат исчезнут после обновления.', legal_open_cases: 'Открытые дела', legal_urgent: 'Срочные сроки', legal_open_questions: 'Открытые вопросы', legal_all_cases: 'Всего дел', legal_reminder_partner: 'Проверьте дела, где легальность пребывания истекает в течение месяца или уже истекла.', legal_by_project: 'По проектам', legal_cases_count: 'дел: {n}', legal_due_count: 'срочных: {n}', legal_candidates: 'Список людей', legal_no_cases: 'Дел пока нет.',
+  legal_expiry: 'Легальность пребывания до', legal_expiry_date: 'Дата окончания', legal_expiry_hr_hint: 'Дату вводят кадры. За месяц человек и Mente Bussines увидят напоминание в приложении.', legal_case_status: 'Статус дела', legal_comment: 'Комментарий к делу', legal_payments: 'Внесённые оплаты', legal_no_payments: 'Оплат пока нет.', legal_total: 'Всего оплачено', legal_add_payment: 'Добавить оплату (PLN)', legal_reminder: 'Срок легального пребывания скоро истекает:', legal_expired: 'Срок легального пребывания истёк:', legal_reminder_action: 'Обратитесь в кадры или к юридическому партнёру.', legal_expired_short: 'срок истёк', legal_due_soon: 'скоро истекает',
+  legal_status_preparing: 'Подготовка документов', legal_status_application_filed: 'Заявление подано', legal_status_fingerprints_pending: 'Ожидает отпечатков пальцев', legal_status_decision_pending: 'Ожидает решения', legal_status_approved: 'Одобрено', legal_status_closed: 'Закрыто',
   describe_ph_day_off: 'Напр.: Прошу отгул в пятницу, у меня визит в ужонд в 10:00.', describe_ph_sick: 'Напр.: Врач дал L4 на 5 дней.', describe_ph_vacation: 'Напр.: Прошу отпуск, еду домой.',
   describe_ph_housing: 'Адрес, комната, что случилось и с какого времени.', describe_ph_salary: 'Какой месяц, каких часов или доплат не хватает.', describe_ph_complaint: 'Что случилось, когда и где. Факты, без оскорблений.', describe_ph_newcomer_question: 'Любой вопрос — мы поможем.',
   target_leader: 'Лидер', target_manager: 'Руководитель проекта', target_coordinator: 'Координатор', target_housing: 'Жильё', target_other: 'Другое',
@@ -793,6 +815,9 @@ AL.I18N.es = {
   quick_actions: 'Solicitudes rápidas', cat_coordinator_contact: 'Contactar al coordinador', describe_ph_coordinator_contact: 'Cuéntanos qué necesitas hablar y cómo podemos contactarte.',
   legal_partner: 'Mente Bussines · socio legal', legal_sub: 'Consulta el estado de tu caso o envía otra pregunta legal.', cat_legal_case_status: 'Estado de mi caso', cat_legal_question: 'Otra pregunta', describe_ph_legal_case_status: 'Describe brevemente tu caso y qué quieres saber.', describe_ph_legal_question: 'Escribe tu pregunta al socio legal.', legal_audience: 'Solo tú y el representante legal designado pueden ver esto.', legal_privacy: 'No incluyas números de identidad ni copias de documentos. En producción se rechaza hasta designar un destinatario.', err_legal_route_unavailable: 'El socio legal aún no está conectado. La solicitud no se guardó.',
   demo_legal: 'Mente Bussines · demo', legal_partner_role: 'Administrador de consultas legales (solo asignadas)',
+  legal_dashboard: 'Casos legales', legal_dashboard_sub: 'Mente Bussines · casos y plazos', legal_demo_safety: 'Solo datos ficticios. Los cambios de estado y pagos desaparecen al recargar.', legal_open_cases: 'Casos abiertos', legal_urgent: 'Plazos urgentes', legal_open_questions: 'Preguntas abiertas', legal_all_cases: 'Total de casos', legal_reminder_partner: 'Revisa los casos cuyo permiso vence en un mes o ya venció.', legal_by_project: 'Por proyecto', legal_cases_count: 'casos: {n}', legal_due_count: 'urgentes: {n}', legal_candidates: 'Personas', legal_no_cases: 'Todavía no hay casos.',
+  legal_expiry: 'Estancia legal hasta', legal_expiry_date: 'Fecha de vencimiento', legal_expiry_hr_hint: 'RR. HH. registra la fecha. Un mes antes, la persona y Mente Bussines verán un aviso en la aplicación.', legal_case_status: 'Estado del caso', legal_comment: 'Comentario del caso', legal_payments: 'Pagos registrados', legal_no_payments: 'Aún no hay pagos.', legal_total: 'Total pagado', legal_add_payment: 'Añadir pago (PLN)', legal_reminder: 'Tu estancia legal vence pronto:', legal_expired: 'La fecha de estancia legal ya pasó:', legal_reminder_action: 'Contacta con RR. HH. o el socio legal.', legal_expired_short: 'vencido', legal_due_soon: 'vence pronto',
+  legal_status_preparing: 'Preparando documentos', legal_status_application_filed: 'Solicitud presentada', legal_status_fingerprints_pending: 'Esperando huellas', legal_status_decision_pending: 'Esperando decisión', legal_status_approved: 'Aprobado', legal_status_closed: 'Cerrado',
   describe_ph_day_off: 'Ej.: Pido el viernes libre, tengo cita en la oficina a las 10:00.', describe_ph_sick: 'Ej.: El médico me dio L4 por 5 días.', describe_ph_vacation: 'Ej.: Pido vacaciones, voy a casa.',
   describe_ph_housing: 'Dirección, habitación, qué pasó y desde cuándo.', describe_ph_salary: 'Qué mes y qué horas o pluses faltan.', describe_ph_complaint: 'Qué pasó, cuándo y dónde. Hechos, sin insultos.', describe_ph_newcomer_question: 'Cualquier pregunta: te ayudamos.',
   target_leader: 'Líder', target_manager: 'Jefe de proyecto', target_coordinator: 'Coordinador', target_housing: 'Vivienda', target_other: 'Otro',
@@ -874,6 +899,9 @@ AL.I18N.ro = {
   quick_actions: 'Cereri rapide', cat_coordinator_contact: 'Contactează coordonatorul', describe_ph_coordinator_contact: 'Spune-ne despre ce vrei să discuți și cum te putem contacta.',
   legal_partner: 'Mente Bussines · partener juridic', legal_sub: 'Întreabă despre stadiul dosarului sau trimite altă întrebare juridică.', cat_legal_case_status: 'Stadiul dosarului meu', cat_legal_question: 'Altă întrebare', describe_ph_legal_case_status: 'Descrie pe scurt dosarul și ce vrei să afli.', describe_ph_legal_question: 'Scrie întrebarea pentru partenerul juridic.', legal_audience: 'Doar tu și reprezentantul juridic desemnat puteți vedea asta.', legal_privacy: 'Nu include numere de acte sau copii. În versiunea reală cererea este respinsă până la desemnarea destinatarului.', err_legal_route_unavailable: 'Partenerul juridic nu este conectat încă. Cererea nu a fost salvată.',
   demo_legal: 'Mente Bussines · demo', legal_partner_role: 'Administrator cereri juridice (doar cele atribuite)',
+  legal_dashboard: 'Dosare juridice', legal_dashboard_sub: 'Mente Bussines · dosare și termene', legal_demo_safety: 'Doar date fictive. Modificările de stare și plăți dispar după reîncărcare.', legal_open_cases: 'Dosare deschise', legal_urgent: 'Termene urgente', legal_open_questions: 'Întrebări deschise', legal_all_cases: 'Total dosare', legal_reminder_partner: 'Verifică dosarele unde șederea legală expiră într-o lună sau a expirat.', legal_by_project: 'Pe proiecte', legal_cases_count: 'dosare: {n}', legal_due_count: 'urgente: {n}', legal_candidates: 'Persoane', legal_no_cases: 'Nu există dosare.',
+  legal_expiry: 'Ședere legală până la', legal_expiry_date: 'Data expirării', legal_expiry_hr_hint: 'HR introduce data. Cu o lună înainte, persoana și Mente Bussines văd un memento în aplicație.', legal_case_status: 'Starea dosarului', legal_comment: 'Comentariu', legal_payments: 'Plăți înregistrate', legal_no_payments: 'Nu există plăți.', legal_total: 'Total plătit', legal_add_payment: 'Adaugă plată (PLN)', legal_reminder: 'Șederea legală expiră în curând:', legal_expired: 'Data șederii legale a trecut:', legal_reminder_action: 'Contactează HR sau partenerul juridic.', legal_expired_short: 'expirat', legal_due_soon: 'expiră curând',
+  legal_status_preparing: 'Pregătirea documentelor', legal_status_application_filed: 'Cerere depusă', legal_status_fingerprints_pending: 'Așteaptă amprente', legal_status_decision_pending: 'Așteaptă decizia', legal_status_approved: 'Aprobat', legal_status_closed: 'Închis',
   describe_ph_day_off: 'Ex.: Cer zi liberă vineri, am o programare la oficiu la 10:00.', describe_ph_sick: 'Ex.: Medicul mi-a dat L4 pentru 5 zile.', describe_ph_vacation: 'Ex.: Cer concediu, merg acasă.',
   describe_ph_housing: 'Adresa, camera, ce s-a întâmplat și de când.', describe_ph_salary: 'Ce lună și ce ore sau sporuri lipsesc.', describe_ph_complaint: 'Ce s-a întâmplat, când și unde. Fapte, fără jigniri.', describe_ph_newcomer_question: 'Orice întrebare — te ajutăm.',
   target_leader: 'Lider', target_manager: 'Șef de proiect', target_coordinator: 'Coordonator', target_housing: 'Cazare', target_other: 'Altceva',
@@ -956,6 +984,9 @@ AL.I18N.ne = {
   quick_actions: 'छिटो अनुरोध', cat_coordinator_contact: 'संयोजकसँग सम्पर्क', describe_ph_coordinator_contact: 'कुन विषयमा कुरा गर्न चाहनुहुन्छ र हामीले कसरी सम्पर्क गर्ने लेख्नुहोस्।',
   legal_partner: 'Mente Bussines · कानुनी साझेदार', legal_sub: 'आफ्नो मुद्दाको अवस्था वा अर्को कानुनी प्रश्न सोध्नुहोस्।', cat_legal_case_status: 'मेरो मुद्दाको अवस्था', cat_legal_question: 'अर्को प्रश्न', describe_ph_legal_case_status: 'आफ्नो मुद्दा र के जान्न चाहनुहुन्छ छोटकरीमा लेख्नुहोस्।', describe_ph_legal_question: 'कानुनी साझेदारलाई प्रश्न लेख्नुहोस्।', legal_audience: 'यो तपाईं र तोकिएको कानुनी प्रतिनिधिले मात्र देख्न सक्नुहुन्छ।', legal_privacy: 'पहिचान वा कागजात नम्बर र प्रतिलिपि नलेख्नुहोस्। प्राप्तकर्ता नतोकिएसम्म वास्तविक अनुरोध सुरक्षित हुँदैन।', err_legal_route_unavailable: 'कानुनी साझेदार अझै जोडिएको छैन। अनुरोध सुरक्षित भएन।',
   demo_legal: 'Mente Bussines · डेमो', legal_partner_role: 'कानुनी अनुरोध प्रशासक (तोकिएका मात्र)',
+  legal_dashboard: 'कानुनी मुद्दाहरू', legal_dashboard_sub: 'Mente Bussines · मुद्दा र म्याद', legal_demo_safety: 'डेमोमा काल्पनिक डाटा मात्र छ। स्थिति र भुक्तानी परिवर्तन पृष्ठ फेरि खोल्दा हराउँछ।', legal_open_cases: 'खुला मुद्दा', legal_urgent: 'जरुरी म्याद', legal_open_questions: 'खुला प्रश्न', legal_all_cases: 'कुल मुद्दा', legal_reminder_partner: 'एक महिनाभित्र म्याद सकिने वा सकिएका मुद्दा हेर्नुहोस्।', legal_by_project: 'परियोजनाअनुसार', legal_cases_count: 'मुद्दा: {n}', legal_due_count: 'जरुरी: {n}', legal_candidates: 'व्यक्तिहरू', legal_no_cases: 'अहिले मुद्दा छैन।',
+  legal_expiry: 'कानुनी बसाइको म्याद', legal_expiry_date: 'म्याद सकिने मिति', legal_expiry_hr_hint: 'HR ले मिति लेख्छ। एक महिनाअघि व्यक्ति र Mente Bussines ले एपमा सम्झना देख्छन्।', legal_case_status: 'मुद्दाको स्थिति', legal_comment: 'मुद्दाको टिप्पणी', legal_payments: 'दर्ता भुक्तानी', legal_no_payments: 'भुक्तानी छैन।', legal_total: 'जम्मा भुक्तानी', legal_add_payment: 'भुक्तानी थप्नुहोस् (PLN)', legal_reminder: 'कानुनी बसाइको म्याद चाँडै सकिँदैछ:', legal_expired: 'कानुनी बसाइको म्याद बितिसकेको छ:', legal_reminder_action: 'HR वा कानुनी साझेदारलाई सम्पर्क गर्नुहोस्।', legal_expired_short: 'म्याद सकियो', legal_due_soon: 'चाँडै सकिन्छ',
+  legal_status_preparing: 'कागजात तयार हुँदै', legal_status_application_filed: 'आवेदन दर्ता', legal_status_fingerprints_pending: 'औँलाछापको प्रतीक्षा', legal_status_decision_pending: 'निर्णयको प्रतीक्षा', legal_status_approved: 'स्वीकृत', legal_status_closed: 'बन्द',
   describe_ph_day_off: 'जस्तै: शुक्रबार बिदा चाहियो, १०:०० बजे कार्यालयमा काम छ।', describe_ph_sick: 'जस्तै: डाक्टरले ५ दिनको L4 दिनुभयो।', describe_ph_vacation: 'जस्तै: छुट्टी चाहियो, घर जाँदैछु।',
   describe_ph_housing: 'ठेगाना, कोठा, के भयो र कहिलेदेखि।', describe_ph_salary: 'कुन महिना, कति घण्टा वा भत्ता छुट्यो।', describe_ph_complaint: 'के भयो, कहिले र कहाँ। तथ्य मात्र, अपमान नगर्नुहोस्।', describe_ph_newcomer_question: 'जुनसुकै प्रश्न — हामी मद्दत गर्छौं।',
   target_leader: 'लिडर', target_manager: 'परियोजना प्रबन्धक', target_coordinator: 'संयोजक', target_housing: 'बसोबास', target_other: 'अन्य',
@@ -1097,6 +1128,9 @@ AL.I18N.ne = {
     audit: me => GLOBAL.includes(me.role),
     referral: me => !!me && ['none', 'complaints'].includes(blockOf(me)),
     referralInbox: me => !!me && blockOf(me) !== 'full' && ['hr', 'admin_project', ...GLOBAL].includes(me.role),
+    legalPartner: me => !!me && !!me.is_legal_partner && blockOf(me) !== 'full',
+    legalExpiry: (me, target) => !!me && !!target && blockOf(me) !== 'full' &&
+      (me.role === 'superadmin' || (me.role === 'hr' && inProjects(me, target.project_id))),
     pollResults: (me, p) => p.author_id === me.id || GLOBAL.includes(me.role) ||
       (['admin_project', 'coordinator', 'manager'].includes(me.role) && inProjects(me, p.project_id)),
   };
@@ -1233,7 +1267,19 @@ AL.I18N.ne = {
   }
   function hash(s) { let h = 0; for (const c of s) h = (h * 31 + c.charCodeAt(0)) | 0; return h * 7919; }
 
-  let S;
+  let S, legalPreview;
+  function makeLegalPreview() {
+    return [
+      { profile_id: 'u-serhii', expires_on: day(22), status: 'application_filed', comment: 'Wniosek złożony. Czekamy na termin.', payments: [
+        { id: 'lp-1', amount_grosz: 50000, created_at: ago(24 * 50) },
+        { id: 'lp-2', amount_grosz: 100000, created_at: ago(24 * 25) },
+        { id: 'lp-3', amount_grosz: 50000, created_at: ago(24 * 3) },
+      ] },
+      { profile_id: 'u-maria', expires_on: day(15), status: 'fingerprints_pending', comment: 'Termin odcisków do potwierdzenia.', payments: [] },
+      { profile_id: 'u-oleh', expires_on: day(75), status: 'preparing', comment: '', payments: [] },
+      { profile_id: 'u-ram', expires_on: day(-3), status: 'decision_pending', comment: 'Przykładowe dane — pilne sprawdzenie.', payments: [] },
+    ];
+  }
   function load() {
     try {
       const raw = localStorage.getItem(KEY);
@@ -1278,11 +1324,11 @@ AL.I18N.ne = {
 
   const api = {
     mode: 'demo',
-    async init() { load(); S.current = null; S.requests.forEach(r => { if (!r.project_id) Object.assign(r, placeOf(r.owner_id)); }); save(); },
+    async init() { load(); legalPreview = makeLegalPreview(); S.current = null; S.requests.forEach(r => { if (!r.project_id) Object.assign(r, placeOf(r.owner_id)); }); save(); },
     async currentUserId() { return S.current; },
     demoUsers() { return S.users.map(u => ({ id: u.id, full_name: u.full_name, role: u.role, status: u.status, position: u.position, project_id: u.project_id, is_legal_partner: !!u.is_legal_partner })); },
     async demoLogin(id) { S.current = id; save(); },
-    async demoReset() { S = seed(); save(); },
+    async demoReset() { S = seed(); legalPreview = makeLegalPreview(); save(); },
     async signOut() { S.current = null; save(); },
     async sendCode() { }, async verifyCode() { },
 
@@ -1300,6 +1346,45 @@ AL.I18N.ne = {
       need(S.projects.some(p => p.id === o.preferred_project_id) && ['poland','origin_country'].includes(o.location), 'INVALID');
       // Public demo: do not put third-party personal data in localStorage or audit.
       return delay('demo-preview');
+    },
+
+    async legalDashboard() {
+      const m = me(); need(AL.can.legalPartner(m));
+      const cases = legalPreview.map(c => { const u = S.users.find(x => x.id === c.profile_id); return {
+        ...c, full_name: u ? u.full_name : '—', project_id: u ? u.project_id : null,
+        payments: c.payments.map(p => ({ ...p })), total_grosz: c.payments.reduce((n, p) => n + p.amount_grosz, 0),
+      }; });
+      const open_requests = S.requests.filter(r => AL.LEGAL.includes(r.category) && r.legal_recipient_id === m.id && r.status !== 'closed').length;
+      return delay({ cases, open_requests });
+    },
+    async legalMyCase() {
+      const m = me(); need(m && AL.blockOf(m) !== 'full');
+      const c = legalPreview.find(x => x.profile_id === m.id);
+      return delay(c ? { expires_on: c.expires_on, status: c.status } : null);
+    },
+    async legalExpiryFor(id) {
+      const target = S.users.find(x => x.id === id); need(AL.can.legalExpiry(me(), target));
+      return delay((legalPreview.find(c => c.profile_id === id) || {}).expires_on || null);
+    },
+    async setLegalExpiry(id, date) {
+      const target = S.users.find(x => x.id === id); need(AL.can.legalExpiry(me(), target) && AL.blockOf(me()) !== 'readonly');
+      need(!date || /^\d{4}-\d{2}-\d{2}$/.test(date), 'INVALID');
+      let c = legalPreview.find(x => x.profile_id === id);
+      if (!c) { c = { profile_id: id, expires_on: null, status: 'preparing', comment: '', payments: [] }; legalPreview.push(c); }
+      c.expires_on = date || null; // demo-only memory; never persisted
+    },
+    async setLegalCase(id, status, comment) {
+      need(AL.can.legalPartner(me()) && AL.blockOf(me()) !== 'readonly', 'FORBIDDEN');
+      need(['preparing','application_filed','fingerprints_pending','decision_pending','approved','closed'].includes(status) && String(comment || '').length <= 1000, 'INVALID');
+      const c = legalPreview.find(x => x.profile_id === id); need(c, 'FORBIDDEN');
+      c.status = status; c.comment = String(comment || '');
+    },
+    async addLegalPayment(id, amountGrosz) {
+      need(AL.can.legalPartner(me()) && AL.blockOf(me()) !== 'readonly', 'FORBIDDEN');
+      need(Number.isInteger(amountGrosz) && amountGrosz > 0 && amountGrosz <= 10000000, 'INVALID');
+      const c = legalPreview.find(x => x.profile_id === id); need(c, 'FORBIDDEN');
+      const idPayment = uid(); c.payments.push({ id: idPayment, amount_grosz: amountGrosz, created_at: now() });
+      return idPayment;
     },
 
     async inviteInfo(code) {
@@ -1634,6 +1719,11 @@ AL.I18N.ne = {
   // ---------- оболонка ----------
   function tabsFor(me) {
     if (!me) return [];
+    if (me.is_legal_partner) return [
+      { id: 'legal_dashboard', icon: 'chart', label: t('legal_dashboard') },
+      { id: 'requests', icon: 'inbox', label: t('tab_requests') },
+      { id: 'profile', icon: 'user', label: t('tab_profile') },
+    ];
     const tabs = [{ id: 'home', icon: 'home', label: t('tab_home') }];
     tabs.push({ id: 'requests', icon: 'inbox', label: t('tab_requests') });
     if (me.status === 'newcomer') tabs.push({ id: 'firstday', icon: 'flag', label: t('tab_firstday') });
@@ -1659,7 +1749,7 @@ AL.I18N.ne = {
     };
     $('#home-logo').setAttribute('aria-label', `ALIMAT Connect — ${t('tab_home')}`);
     $('#home-logo').onclick = () => {
-      ST.detail = null; ST.tab = 'home';
+      ST.detail = null; ST.tab = ST.me && ST.me.is_legal_partner ? 'legal_dashboard' : 'home';
       if (!ST.me) { ST.pendingInvite = null; ST.authView = 'login'; clearInviteFromUrl(); }
       render();
     };
@@ -1683,7 +1773,7 @@ AL.I18N.ne = {
     if (!ST.me) return renderAuth(v);
     if (AL.blockOf(ST.me) === 'full') return renderBlocked(v);
     if (ST.detail) return renderRequestDetail(v, ST.detail);
-    const map = { home: renderHome, requests: renderRequests, firstday: renderFirstDay, create: renderCreate, people: renderPeople, more: renderMore, profile: renderProfile, referral: renderReferral, analytics: renderAnalytics, onboarding: renderOnboardingAdmin, invites: renderInvites, structure: renderStructure, audit: renderAudit };
+    const map = { home: renderHome, legal_dashboard: renderLegalDashboard, requests: renderRequests, firstday: renderFirstDay, create: renderCreate, people: renderPeople, more: renderMore, profile: renderProfile, referral: renderReferral, analytics: renderAnalytics, onboarding: renderOnboardingAdmin, invites: renderInvites, structure: renderStructure, audit: renderAudit };
     v.innerHTML = '<div class="loading"></div>';
     await guard(() => (map[ST.tab] || renderHome)(v));
     updateBadges();
@@ -1693,6 +1783,17 @@ AL.I18N.ne = {
   function header(title, sub, back) {
     return `<div class="vh">${back ? `<button class="iconbtn" id="back" aria-label="${t('back')}">${icon('back')}</button>` : ''}<div><h1>${esc(title)}</h1>${sub ? `<p class="sub">${esc(sub)}</p>` : ''}</div></div>`;
   }
+  function legalDateState(date) {
+    if (!date) return null;
+    const [year, month, day] = date.split('-').map(Number);
+    if (!year || !month || !day) return null;
+    const expiry = new Date(year, month - 1, day);
+    const previousMonthLastDay = new Date(year, month - 1, 0).getDate();
+    const warnFrom = new Date(year, month - 2, Math.min(day, previousMonthLastDay));
+    const now = new Date(), today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    return { days: Math.round((expiry - today) / 864e5), warn: today >= warnFrom, expired: today > expiry };
+  }
+  const money = grosz => (Number(grosz || 0) / 100).toLocaleString(loc(), { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' PLN';
   function bindBack(v, to) { const b = $('#back', v); if (b) b.onclick = () => { ST.detail = null; if (to) ST.tab = to; render(); }; }
 
   async function updateBadges() {
@@ -1879,9 +1980,65 @@ AL.I18N.ne = {
     if (a.scope === 'department') return pName(a.project_id) + ' · ' + dName(a.department_id);
     return dName(a.department_id) + ' · ' + gName(a.group_id);
   }
+  async function renderLegalDashboard(v) {
+    const overview = await ST.api.legalDashboard();
+    const cases = overview.cases || [];
+    const open = cases.filter(c => !['approved','closed'].includes(c.status));
+    const urgent = open.filter(c => { const d = legalDateState(c.expires_on); return d && d.warn; });
+    const projects = [...new Set(cases.map(c => c.project_id).filter(Boolean))];
+    const selectedProject = ST.legalProject || '', selectedStatus = ST.legalStatus || '';
+    const filtered = cases.filter(c => (!selectedProject || c.project_id === selectedProject) && (!selectedStatus || c.status === selectedStatus));
+    v.innerHTML = `${header(t('legal_dashboard'), t('legal_dashboard_sub'))}
+      ${ST.api.mode === 'demo' ? `<div class="banner info">${icon('lock')}<span>${t('legal_demo_safety')}</span></div>` : ''}
+      <div class="kpis legal-kpis"><div class="kpi"><small>${t('legal_open_cases')}</small><b>${open.length}</b></div><div class="kpi"><small>${t('legal_urgent')}</small><b>${urgent.length}</b></div>
+        <div class="kpi"><small>${t('legal_open_questions')}</small><b>${overview.open_requests || 0}</b></div><div class="kpi"><small>${t('legal_all_cases')}</small><b>${cases.length}</b></div></div>
+      ${urgent.length ? `<div class="card warn"><b>${t('legal_urgent')}</b><p>${t('legal_reminder_partner')}</p></div>` : ''}
+      <h2 class="sec">${t('legal_by_project')}</h2><div class="stack">${projects.map(id => {
+        const rows = cases.filter(c => c.project_id === id);
+        const due = rows.filter(c => { const d = legalDateState(c.expires_on); return !['approved','closed'].includes(c.status) && d && d.warn; }).length;
+        return `<div class="card legal-project"><b>${esc(pName(id))}</b><span>${t('legal_cases_count', { n: rows.length })} · ${t('legal_due_count', { n: due })}</span></div>`;
+      }).join('') || `<div class="empty">${t('legal_no_cases')}</div>`}</div>
+      <h2 class="sec">${t('legal_candidates')}</h2><div class="two legal-filters"><div><label for="legal-project">${t('project')}</label><select id="legal-project"><option value="">${t('all_projects')}</option>${projects.map(id => `<option value="${esc(id)}" ${selectedProject === id ? 'selected' : ''}>${esc(pName(id))}</option>`).join('')}</select></div>
+      <div><label for="legal-status">${t('status')}</label><select id="legal-status"><option value="">${t('all')}</option>${['preparing','application_filed','fingerprints_pending','decision_pending','approved','closed'].map(s => `<option value="${s}" ${selectedStatus === s ? 'selected' : ''}>${t('legal_status_' + s)}</option>`).join('')}</select></div></div>
+      <div class="stack">${filtered.map(c => {
+        const d = legalDateState(c.expires_on);
+        return `<button type="button" class="card legal-person" data-legal-case="${esc(c.profile_id)}"><span class="grow"><b>${esc(c.full_name)}</b><small>${esc(pName(c.project_id))} · ${t('legal_status_' + c.status)}</small><small>${t('legal_expiry')}: ${c.expires_on ? esc(fDateLong(c.expires_on)) : '—'}${d && d.warn ? ` · ${t(d.expired ? 'legal_expired_short' : 'legal_due_soon')}` : ''}</small></span><strong>${esc(money(c.total_grosz))}</strong></button>`;
+      }).join('') || `<div class="empty">${t('legal_no_cases')}</div>`}</div>
+      <button class="btn wide" id="legal-inbox">${icon('inbox')}${t('legal_open_questions')}: ${overview.open_requests || 0}</button>`;
+    $('#legal-project', v).onchange = e => { ST.legalProject = e.target.value; render(); };
+    $('#legal-status', v).onchange = e => { ST.legalStatus = e.target.value; render(); };
+    $$('[data-legal-case]', v).forEach(b => b.onclick = () => openLegalCase(cases.find(c => c.profile_id === b.dataset.legalCase)));
+    $('#legal-inbox', v).onclick = () => { ST.tab = 'requests'; ST.reqSeg = 'inbox'; ST.reqFilter = 'all'; ST.reqCat = ''; render(); };
+  }
+  function openLegalCase(c) {
+    if (!c) return;
+    const statuses = ['preparing','application_filed','fingerprints_pending','decision_pending','approved','closed'];
+    openSheet(`<h2>${esc(c.full_name)}</h2><p class="muted">${esc(pName(c.project_id))} · ${t('legal_expiry')}: ${c.expires_on ? esc(fDateLong(c.expires_on)) : '—'}</p>
+      ${AL.blockOf(ST.me) !== 'readonly' ? `<form id="f-legal-status" class="card form"><label for="lc-status">${t('legal_case_status')}</label><select id="lc-status">${statuses.map(s => `<option value="${s}" ${c.status === s ? 'selected' : ''}>${t('legal_status_' + s)}</option>`).join('')}</select>
+        <label for="lc-comment">${t('legal_comment')}</label><textarea id="lc-comment" maxlength="1000" rows="3">${esc(c.comment || '')}</textarea><button class="btn primary">${t('save')}</button></form>
+      ` : `<div class="card"><b>${t('legal_status_' + c.status)}</b><p>${esc(c.comment || '')}</p></div>`}
+      <h3>${t('legal_payments')}</h3><div class="stack">${c.payments.map(p => `<div class="card meta"><span>${esc(fDate(p.created_at))}</span><b>${esc(money(p.amount_grosz))}</b></div>`).join('') || `<div class="empty">${t('legal_no_payments')}</div>`}</div>
+      <div class="card legal-total"><b>${t('legal_total')}</b><strong>${esc(money(c.total_grosz))}</strong></div>
+      ${AL.blockOf(ST.me) !== 'readonly' ? `<form id="f-legal-payment" class="card form"><label for="lc-amount">${t('legal_add_payment')}</label><input id="lc-amount" type="number" min="0.01" max="100000" step="0.01" required inputmode="decimal" placeholder="500.00"><button class="btn primary">${t('legal_add_payment')}</button></form>` : ''}`, el => {
+      const statusForm = $('#f-legal-status', el);
+      if (statusForm) statusForm.onsubmit = async e => {
+        e.preventDefault(); const ok = await guard(async () => { await ST.api.setLegalCase(c.profile_id, $('#lc-status', el).value, $('#lc-comment', el).value.trim()); return true; });
+        if (ok) { closeSheet(); toast(t('saved'), 'good'); render(); }
+      };
+      const paymentForm = $('#f-legal-payment', el);
+      if (paymentForm) paymentForm.onsubmit = async e => {
+        e.preventDefault(); const amount = Number($('#lc-amount', el).value), grosz = Math.round(amount * 100);
+        if (!Number.isFinite(amount) || grosz <= 0 || grosz > 10000000) return toast(t('err_invalid'), 'bad');
+        const submit = $('button', $('#f-legal-payment', el)); submit.disabled = true;
+        const ok = await guard(async () => { await ST.api.addLegalPayment(c.profile_id, grosz); return true; });
+        if (ok) { closeSheet(); toast(t('saved'), 'good'); render(); } else submit.disabled = false;
+      };
+    });
+  }
   async function renderHome(v) {
     const me = ST.me;
-    const [anns, polls, tasks, stats, onb] = await Promise.all([ST.api.announcements(), ST.api.polls(), ST.api.tasks(), ST.api.announcementStats(), me.status === 'newcomer' ? ST.api.onboarding() : Promise.resolve([])]);
+    const [anns, polls, tasks, stats, onb, legalCase] = await Promise.all([ST.api.announcements(), ST.api.polls(), ST.api.tasks(), ST.api.announcementStats(), me.status === 'newcomer' ? ST.api.onboarding() : Promise.resolve([]), me.role === 'worker' ? ST.api.legalMyCase().catch(() => null) : Promise.resolve(null)]);
+    const legalDate = legalDateState(legalCase && legalCase.expires_on);
     const myTasks = tasks.filter(x => x.assignee_id === me.id && x.status === 'open');
     const openPolls = polls.filter(p => !p.voted && p.author_id !== me.id);
     const donePolls = polls.filter(p => p.voted || p.author_id === me.id);
@@ -1889,6 +2046,7 @@ AL.I18N.ne = {
     const hello = t('hello', { name: me.full_name.split(' ')[0] });
     v.innerHTML = `${header(hello, [me.position || t('role_' + me.role), place(me)].filter(Boolean).join(' · '))}
       ${blockBanner()}
+      ${legalDate && legalDate.warn ? `<div class="banner ${legalDate.expired ? 'warn' : 'info'}">${icon('legal_case_status')}<span><b>${t(legalDate.expired ? 'legal_expired' : 'legal_reminder')}</b> ${esc(fDateLong(legalCase.expires_on))}. ${t('legal_reminder_action')}</span></div>` : ''}
       ${AL.blockOf(me) !== 'readonly' ? `<h2 class="sec">${t('quick_actions')}</h2><div class="quick-actions">${['day_off','vacation','sick','complaint','coordinator_contact'].filter(c => c !== 'complaint' || AL.blockOf(me) !== 'complaints').map(c => `<button type="button" class="quick-action" data-quick="${c}"><span class="cat cat-${c}">${icon(c)}</span><b>${t('cat_' + c)}</b><span class="quick-arrow">→</span></button>`).join('')}</div>` : ''}
       ${AL.can.referral(me) ? `<button type="button" class="card referral-entry" id="go-referral"><span class="cat">${icon('referral')}</span><span class="grow"><b>${t('referral_title')}</b><small>${t('referral_entry')}</small></span>${icon('back', 'flip')}</button>` : ''}
       ${AL.blockOf(me) !== 'readonly' && !me.is_legal_partner ? `<div class="card legal-entry"><span class="cat cat-legal_case_status">${icon('legal_case_status')}</span><div class="grow"><b>${t('legal_partner')}</b><small>${t('legal_sub')}</small></div><div class="legal-actions"><button class="btn small" data-legal="legal_case_status">${t('cat_legal_case_status')}</button><button class="btn small" data-legal="legal_question">${t('cat_legal_question')}</button></div></div>` : ''}
@@ -2271,14 +2429,17 @@ AL.I18N.ne = {
     $$('[data-p]', v).forEach(b => b.onclick = () => openPerson(users.find(u => u.id === b.dataset.p)));
   }
 
-  function openPerson(u) {
+  async function openPerson(u) {
     const me = ST.me, blk = AL.blockOf(u);
     const admin = AL.canAdminUser(me, u), dismiss = AL.canDismiss(me, u), activate = AL.canMarkActive(me, u), task = AL.can.task(me) && AL.canViewUser(me, u);
+    const canSetExpiry = AL.can.legalExpiry(me, u);
+    const expiry = canSetExpiry ? await ST.api.legalExpiryFor(u.id).catch(() => null) : null;
     openSheet(`<div class="person"><span class="av lg ${u.role !== 'worker' ? 'staff' : ''}">${esc(initials(u.full_name))}</span><div><h2>${esc(u.full_name)}</h2><p class="muted">${esc(t('role_' + u.role))}${u.position ? ' · ' + esc(u.position) : ''}</p></div></div>
       <dl class="kv"><dt>${t('phone')}</dt><dd class="selectable">${esc(u.phone || '—')}</dd><dt>${t('email')}</dt><dd class="selectable">${esc(u.email || '—')}</dd>
       <dt>${t('workplace')}</dt><dd>${esc(place(u) || '—')}</dd><dt>${t('status')}</dt><dd>${u.status === 'newcomer' ? t('newcomer') : t('working')}</dd>
       ${blk !== 'none' ? `<dt>${t('block')}</dt><dd class="bad">${t('block_' + blk)}${u.blocked_until ? ' · ' + t('until_date', { date: fDate(u.blocked_until) }) : ''}<br><small>${esc(u.block_reason || '')}</small></dd>` : ''}</dl>
-      <div class="actions">
+       ${canSetExpiry ? (AL.blockOf(me) !== 'readonly' ? `<form id="f-legal-expiry" class="card form"><h3>${t('legal_expiry')}</h3><p class="muted small">${t('legal_expiry_hr_hint')}</p><label for="expiry-date">${t('legal_expiry_date')}</label><input id="expiry-date" type="date" value="${esc(expiry || '')}"><button class="btn primary">${t('save')}</button></form>` : `<div class="card"><b>${t('legal_expiry')}</b><p>${expiry ? esc(fDateLong(expiry)) : '—'}</p></div>`) : ''}
+       <div class="actions">
         ${activate ? `<button class="btn" id="act">${icon('check')}${t('mark_started')}</button>` : ''}
         ${task ? `<button class="btn" id="tsk">${icon('task')}${t('give_task')}</button>` : ''}
         ${admin ? `<button class="btn" id="edit">${icon('tree')}${t('edit_role')}</button>` : ''}
@@ -2287,6 +2448,11 @@ AL.I18N.ne = {
       </div><div id="pform"></div>`, el => {
       const pf = $('#pform', el);
       const b = id => $('#' + id, el);
+      const expiryForm = b('f-legal-expiry');
+      if (expiryForm) expiryForm.onsubmit = async e => {
+        e.preventDefault(); const ok = await guard(async () => { await ST.api.setLegalExpiry(u.id, $('#expiry-date', el).value || null); return true; });
+        if (ok) { closeSheet(); toast(t('saved'), 'good'); render(); }
+      };
       if (b('act')) b('act').onclick = async () => { const ok = await guard(async () => { await ST.api.updateUser(u.id, { role: u.role, project_id: u.project_id, department_id: u.department_id, group_id: u.group_id, position: u.position, status: 'active' }); return true; }); if (ok) { closeSheet(); toast(t('saved'), 'good'); render(); } };
       if (b('tsk')) b('tsk').onclick = () => { closeSheet(); ST.prefill = u.id; ST.createSeg = 'task'; ST.tab = 'create'; render(); };
       if (b('unb')) b('unb').onclick = async () => { const ok = await guard(async () => { await ST.api.blockUser(u.id, 'none', null, t('unblocked_reason')); return true; }); if (ok) { closeSheet(); toast(t('unblocked'), 'good'); render(); } };
@@ -2514,7 +2680,7 @@ AL.I18N.ne = {
     if (ST.me) {
       ST.lang = ST.me.lang || ST.lang;
       ST.struct = await ST.api.structure();
-      ST.tab = 'home'; ST.detail = null;
+      ST.tab = ST.me.is_legal_partner ? 'legal_dashboard' : 'home'; ST.detail = null;
     } else {
       ST.struct = ST.api.mode === 'demo' ? await ST.api.structure() : ST.struct;
     }
